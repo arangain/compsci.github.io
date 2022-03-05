@@ -1,0 +1,20 @@
+{
+    "short_name": "WD1",
+    "name": "WireDelta PWA",
+    "icons": [
+        {
+            "src": "/images/icon1.png",
+            "type": "image/png",
+            "sizez": "144x144"
+        },
+        {
+            "src": "/images/icon2.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        }
+    ],
+    "start_url": "/index.html",
+    "background-color": "#000000",
+    "display": "standalone",
+    "theme-color": "#4dbaa8"
+}
