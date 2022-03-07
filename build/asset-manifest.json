@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/compsci.github.io/static/css/main.abfbcbc6.css",
+    "main.css": "/compsci.github.io/static/css/main.2b7e7e37.css",
     "main.js": "/compsci.github.io/static/js/main.3ae3a466.js",
     "static/js/787.e2135708.chunk.js": "/compsci.github.io/static/js/787.e2135708.chunk.js",
     "index.html": "/compsci.github.io/index.html",
-    "main.abfbcbc6.css.map": "/compsci.github.io/static/css/main.abfbcbc6.css.map",
+    "main.2b7e7e37.css.map": "/compsci.github.io/static/css/main.2b7e7e37.css.map",
     "main.3ae3a466.js.map": "/compsci.github.io/static/js/main.3ae3a466.js.map",
     "787.e2135708.chunk.js.map": "/compsci.github.io/static/js/787.e2135708.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.abfbcbc6.css",
+    "static/css/main.2b7e7e37.css",
     "static/js/main.3ae3a466.js"
   ]
 }
