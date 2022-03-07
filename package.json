@@ -1,0 +1,59 @@
+{
+  "name": "project",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://isoooopo.github.io/project",
+  "dependencies": {
+    "@react-spring/web": "^9.2.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "chart.js": "^2.9.4",
+    "framer": "^1.3.6",
+    "framer-motion": "^4.1.17",
+    "lodash.clamp": "^4.0.3",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^2.11.2",
+    "react-dom": "^17.0.2",
+    "react-particles-js": "^3.5.3",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "5.0.0",
+    "react-spring": "^9.2.4",
+    "react-use-gesture": "^9.1.3",
+    "react-use-measure": "^2.0.4",
+    "recharts": "^2.1.8",
+    "state-pool": "^0.6.0",
+    "styled-components": "^5.3.1",
+    "typescript": "^4.4.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
