@@ -126,7 +126,7 @@ li a {
   color: #6D2CFF;
 }
 h1 {
-  font-family: 'FFF Forward';
+  font-family: 'fantasy';
   text-align: center;
   margin-top: 0px;
   padding: 20px;
@@ -142,14 +142,14 @@ h4 {
   width: 90%;
   height: 100%;
   margin-left: 2%;
-  font-family: 'FFF Forward';
+  font-family: 'fantasy';
   text-align: center;
 }
 
 h6 {
   text-align: left;
   margin-left: 2%;
-  font-family: 'FFF Forward';
+  font-family: 'fantasy';
   font-size: 15px;
   padding: 8px;
 
@@ -157,7 +157,7 @@ h6 {
 
 h2 {
   text-align: center;
-  font-family: 'FFF Forward';
+  font-family: 'fantasy';
   font-size: 20px;
   margin-bottom: 2%;
   padding: 20px;
@@ -165,7 +165,7 @@ h2 {
 
 h3 {
   text-align: center;
-  font-family: 'FFF Forward';
+  font-family: 'fantasy';
   margin-top: 2%;
   margin-bottom: 2%;
   font-size: 10px;
@@ -173,7 +173,7 @@ h3 {
 
 .username {
   color: red;
-  font-family:'FFF Forward';
+  font-family:'fantasy';
   text-align: center;
   margin-top: 0px;
   padding: 20px;
