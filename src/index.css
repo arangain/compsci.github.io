@@ -58,7 +58,7 @@ a:hover {
   transition-property: all;
   transition-duration: .6s;
   transition-timing-function: ease;
-  letter-spacing: 0.5px;
+  letter-spacing: 0px;
   
 
 }
