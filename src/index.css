@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'FFF Forward', 'fantasy'
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -46,9 +46,7 @@ a {
   padding: 10px 30px;
   font-size: 2.1vw;
   letter-spacing: 0px;
-  font-family: fantasy;
-  font-style: normal;
-  font-weight: 400;
+  font-family: 'FFF Forward';
 }
 
 a:hover {
@@ -58,15 +56,39 @@ a:hover {
   transition-property: all;
   transition-duration: .6s;
   transition-timing-function: ease;
-  letter-spacing: 0px;
+  letter-spacing: 5px;
   
 
+}
+
+a:after, a:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+  
+}
+
+a:hover:after, a:hover:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+  
 }
 
 a:hover:before {
   bottom: auto;
   top: 0;
-  width: 30%;
+  width: 70%;
 }
 
 label {

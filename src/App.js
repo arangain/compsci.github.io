@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import './App.css';
+import ReactDOM from 'react-dom'
+import {useTrail, animated, useTransition, useSpring, useChain, config, useSpringRef} from 'react-spring'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {store, useGlobalState} from 'state-pool';
+import { isPropertySignature } from 'typescript';
 import RadarChart from './components/RadarChart';
 import CharStats from './components/CharStats';
 
