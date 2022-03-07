@@ -127,7 +127,7 @@ li a {
 }
 h1 {
   font-family: 'fantasy';
-  font-style: regular;
+  font-style: normal;
   font-weight: 400;
   text-align: center;
   margin-top: 0px;
@@ -145,7 +145,7 @@ h4 {
   height: 100%;
   margin-left: 2%;
   font-family: 'fantasy';
-  font-style: regular;
+  font-style: normal;
   font-weight: 400;
   text-align: center;
 }
@@ -154,7 +154,7 @@ h6 {
   text-align: left;
   margin-left: 2%;
   font-family: 'fantasy';
-  font-style: regular;
+  font-style: normal;
   font-weight: 400;
   font-size: 15px;
   padding: 8px;
@@ -164,7 +164,7 @@ h6 {
 h2 {
   text-align: center;
   font-family: 'fantasy';
-  font-style: regular;
+  font-style: normal;
   font-weight: 400;
   font-size: 20px;
   margin-bottom: 2%;
@@ -174,7 +174,7 @@ h2 {
 h3 {
   text-align: center;
   font-family: 'fantasy';
-  font-style: regular;
+  font-style: normal;
   font-weight: 400;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -184,7 +184,7 @@ h3 {
 .username {
   color: red;
   font-family:'fantasy';
-  font-style: regular;
+  font-style: normal;
   font-weight: 400;
   text-align: center;
   margin-top: 0px;
