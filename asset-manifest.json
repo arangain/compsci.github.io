@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/compsci.github.io/static/css/main.dfe6f51d.css",
+    "main.js": "/compsci.github.io/static/js/main.3ae3a466.js",
+    "static/js/787.e2135708.chunk.js": "/compsci.github.io/static/js/787.e2135708.chunk.js",
+    "index.html": "/compsci.github.io/index.html",
+    "main.dfe6f51d.css.map": "/compsci.github.io/static/css/main.dfe6f51d.css.map",
+    "main.3ae3a466.js.map": "/compsci.github.io/static/js/main.3ae3a466.js.map",
+    "787.e2135708.chunk.js.map": "/compsci.github.io/static/js/787.e2135708.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dfe6f51d.css",
+    "static/js/main.3ae3a466.js"
+  ]
+}
