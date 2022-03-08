@@ -345,7 +345,7 @@ function SmallLine() {
 */}
 function CharList({onSubmit}) {
   const [workout, setWorkout] = useGlobalState("workout")
-  const Currenttotal = CharStats[3]+CharStats[2]+CharStats[1]+CharStats[0];
+  const Currenttotal = CharStats[2]+CharStats[1]+CharStats[0];
     let rowsWorkout = []
     for (let i=0; i<(((CharStats[0])/Currenttotal)*100)/10; i++) {
       rowsWorkout.push(<SmallLine key={i} />)
