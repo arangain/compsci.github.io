@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.39",
     "chart.js": "^2.9.4",
     "framer": "^1.3.6",
     "framer-motion": "^4.1.17",
@@ -24,7 +26,7 @@
     "recharts": "^2.1.8",
     "state-pool": "^0.6.0",
     "styled-components": "^5.3.1",
-    "typescript": "^4.4.3",
+    "typescript": "^4.6.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -41,7 +43,6 @@
       "react-app/jest"
     ]
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",
