@@ -1,4 +1,4 @@
-//This code taken/from WireDelta for help with creating a progressive web app
+//This code taken from WireDelta for help with creating a progressive web app
 // application cached when installed 
 self.addEventListener('install', function(event) {
     event.waitUntil(

@@ -10,6 +10,7 @@ import RadarChart from './components/RadarChart';
 import CharStats from './components/CharStats';
 
 
+// https://reactjs.org/docs/error-boundaries.html
 //Class component for error handling because class components are useful when we have a requirement with the state of the component and its hard to do with a functional component
 class ErrorBoundary extends React.Component {
   constructor(props) { 
@@ -36,12 +37,13 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-//https://dev.to/yezyilomo/you-can-definitely-use-global-variables-to-manage-global-state-in-react-17l3 
-// For global counter ( State - pool)
-function handleSubmit(event) {
+//Prevents default refresh of components, rather useful when needed
+function handleSubmit(event) { 
   event.preventDefault();
 }
 
+//https://dev.to/yezyilomo/you-can-definitely-use-global-variables-to-manage-global-state-in-react-17l3 
+// For global counter ( State - pool), global variables library 
 store.setState("count",0);
 store.setState("tasks",0);
 store.setState("attacks",0);
@@ -49,11 +51,11 @@ store.setState("exp",10);
 store.setState("workout",0);
 store.setState("name",0);
 
-
+//This function is for calculating and displaying user's level using experience points
 function Experience(props) { 
-  const [experience, setExp] = useGlobalState("exp");
+  const [experience, setExp] = useGlobalState("exp"); //useGlobalState instead of useState to use the global variables declared just now
   let incrementExp = (e) => {
-    setExp(experience+5)
+    setExp(experience+5) 
   }
   let level = Math.floor(experience)/10
   return(
@@ -63,13 +65,13 @@ function Experience(props) {
   )
 }
 
-
 // Each successful monster gives 5 EXP. 
 // It takes 10 EXP to get one level so EXP / 10 = Level
 
 
-  
 
+// Using a global variable that is incremented when a task is complete to display the total number of tasks the user has completed
+// Displayed in the Analytics Page, but may be unnecessary. Code is here for testing purposes.
 function TasksComplete(props) {
   const [task,setTask] = useGlobalState("tasks");
   const [workout, setWorkout] = useGlobalState("workout");
@@ -85,6 +87,7 @@ function TasksComplete(props) {
   )
 }
 
+// The function that displays how many attacks the user has in the Adventure Page 
 function Attacks(props) {
   const [attack, setAttack] = useGlobalState("attacks");
   let incrementAttack = (e) => {
@@ -97,6 +100,8 @@ function Attacks(props) {
       </div>
     )
 }
+
+// Same function as TaskComplete, used for testing purposes 
 function CreateCounter(props) {
   const [count, setCount] = useGlobalState("count");
 
@@ -114,6 +119,7 @@ function CreateCounter(props) {
 
 
 //https://blog.logrocket.com/building-inline-editable-ui-in-react/
+//A directly editable username interface for the user 
 // Component accept text, laceholder values and also pass what type of Input - 
 // input, textarea so that we can use it for styling accordingly
 const Editable = ({
@@ -173,12 +179,13 @@ function Username() {
       name = "name"
       placeholder = "Username"
       value ={name}
-      onChange={e=> setName(e.target.value)}
+      onChange={e=> setName(e.target.value)} //Returns what the user has inputted into the text area as the new "username"
       />
   </Editable>
-  );
+  ); 
 }
 
+//A function for creating new tasks, code idea from: Beta Version Java Web Development by Paul Baumgarten
 function NewItemForm({onSubmit}) {
   const [subject, setSubject] = useState("");
   const [description, setDescription] = useState("");
@@ -216,7 +223,8 @@ function NewItemForm({onSubmit}) {
 
 
 
-
+// These are for incrementing the user's statistics through a CharStats Array imported from "CharStats.js"
+// The lines below serve to update the array depending on which type of tasks the users create
     CharStats[0] = CharStats[0] + workout
 
     CharStats[1] = CharStats[1] + health
@@ -233,19 +241,19 @@ function NewItemForm({onSubmit}) {
             {/* This is the subject textbox */}
             <label htmlFor="subj"> - Subject</label>
             <input id="subj" value={subject} onChange={e=>{
-              setSubject(e.target.value);
+              setSubject(e.target.value); //Input value for "subject"
             }}/>
 
             {/* This is the subject textbox */}
             <label htmlFor="desc"> - Description</label>
             <textarea id="desc" type="text" value={description} rows={5} onChange={e=>{
-              setDescription(e.target.value);
+              setDescription(e.target.value); //Input value for "Description"
             }}/>
 
             {/* This is for the drop down menu for the type - I have to link this in with the character stats and the graph later . */}
             <label htmlFor="type"> - Type</label>
             <select name="type" onChange={e=>{
-              setType(e.target.value);
+              setType(e.target.value); //This part of the code and below - Radio Buttons for type of task 
 
             }}>
               <option value="" selected>Type of Task</option>
@@ -273,6 +281,7 @@ function NewItemForm({onSubmit}) {
   )
 }
 
+// This function is responsible for the information for each task that is displayed (Also responsible for completion/deletion of task button)
 function ShowItem({key, item, onDelete}) {
   const [task, setTask] = useGlobalState("tasks");
   const [attack, setAttack] = useGlobalState("attacks");
@@ -289,7 +298,8 @@ function ShowItem({key, item, onDelete}) {
     setAttack(attack+2)
   }
 
-  CharStats[3] = (task+1)/((number+1)/2)
+  CharStats[3] = (task+1)/((number+1)/2) // This is for calculating productivity.
+  //  Calculates how many tasks are completed out of the tasks that were created and details it as a numerical value
 
   return(
     <div className="ShowItem">
@@ -304,7 +314,7 @@ function ShowItem({key, item, onDelete}) {
   )
 }
 
-//Deleting items using array splices
+//Deleting items using array splices and Mapping out the array to display to user
 function ItemsList() {
   
   const [items, setItems] = useState([]);
@@ -334,15 +344,19 @@ function ItemsList() {
 }
 
 
-
+// A small line used for representing magnitude of user stats 
 function SmallLine() {
   return <h6 className="InLine">|</h6>
 }
 
 {/*
   The function above is the symbol to represent the numerical stat of that characteristic of the user 
-  The function below is for calculating how mnay lines to display
+  The function below is for calculating how many lines to display
 */}
+// From CharStats Array, this function will declare arrays which will push a symbol "I" (Through function SmallLine above)
+// for each position in the array, where the size of the array is determined by the magnitude of that user stat
+// For example, CharStats[0] is responsible for user stat "workout", and its value will be responsible for the 
+// length of rowsWorkout array and how many times "I" is printed for that stat
 function CharList({onSubmit}) {
   const [workout, setWorkout] = useGlobalState("workout")
   const Currenttotal = CharStats[2]+CharStats[1]+CharStats[0];
@@ -363,7 +377,8 @@ function CharList({onSubmit}) {
   return (
 
       <div className="NoPadding">
-        {/* This is the stats list, and also prints symbols that represent stats out of overall profile */}
+        {/* Displaying both the numerical stats of the user's but also displaying the "I" symbols, 
+        details of which were calculated above */}
         <h6 className="Center"> Strengths and Weaknesses (Tasks)</h6>
         <h6>{"- Workout ["+ CharStats[0]+"]"}{rowsWorkout}</h6>
         <h6>{" - Health [" + CharStats[1]+"]"}{rowsHealth}</h6>
@@ -373,7 +388,7 @@ function CharList({onSubmit}) {
   )
 }
 
-
+// Fixed footer with links that allows the user to navigate between different pages
 function Footer() {
   return(
     <div className="Footer">
@@ -385,6 +400,7 @@ function Footer() {
   )
 }
 
+// A nice welcome page before going in the app
 function Intro() {
   return(
     <div className="Intro">
@@ -393,7 +409,11 @@ function Intro() {
   )
 }
 
-
+// Named the SystemPage after the name of the product, this contains the Profile App 
+//(The first page the user is taken to )
+// Functions include error handling, a function that displays the user's level, editable username interface
+// and the ItemsList is the Task List
+// Footer at the bottom for navigating pages 
 function SystemPage() {
   return (
     
@@ -402,12 +422,10 @@ function SystemPage() {
     
     <ErrorBoundary>
       <div className="username">
-      <Experience/>
+      <Experience/> 
       <Username/>
       </div> 
 
-          {/* <a href="https://google.com" target="_blank" rel="noopener">Open Google</a> {/* This part of the code allows for a button that links to a separate website */}
-          {/* <audio src="minecraft.mp3" controls autoPlay loop></audio>  */}
       <h2>  -  Daily Tasks  - </h2>
       <ItemsList />
       <h3> - - - </h3>
@@ -418,19 +436,11 @@ function SystemPage() {
             
     </ErrorBoundary>
     <Footer />
-    
-
-
-    
-    
     </div>
-
-
-
   );
 }
 
-
+// This is the default page that welcomes the user 
 function DefaultPage() {
   return(
     <div>
@@ -440,7 +450,7 @@ function DefaultPage() {
   )
 }
 
-
+// The analytics page where the user's stats can be seen, including a total tasks completed count 
 function AnalyticsPage() {
   
   return(
@@ -450,16 +460,6 @@ function AnalyticsPage() {
       <TasksComplete/>
       <CharList/>
       
-      
-      {/* for the line graph 
-      for i from 0 to Table[0].length-1
-        for j from 0 to Table.length-1, return or print Table[j][i]
-      */}
-      {/* <div class="container">
-        <div class="container__progress" style="width: 40%;">40%
-        </div>
-      </div>
-    */}
       <RadarChart/>
       <h3> - - - </h3>
       <h3> - - - </h3> 
@@ -469,7 +469,7 @@ function AnalyticsPage() {
   )
 }
 
-//Since putting it in the function made it refresh
+// Declare An array of possible monster names from which a random monster name is taken out of for the user to fight
 function NewMob() { 
   var word=["Goblin", "Slime","Skeleton", "Wraith", "Gargoyle", "Golem", "Orc", "Ghouls", "Blood-Starved Beast", "Dragon", "Elemental", "Demon"];
   var words=word[Math.floor(Math.random()*word.length)];
@@ -477,10 +477,16 @@ function NewMob() {
     <h6>{words}</h6>
   )
 }
-
 var word=["Goblin", "Slime","Skeleton", "Wraith", "Gargoyle", "Golem", "Orc", "Ghouls", "Blood-Starved Beast", "Dragon", "Elemental", "Demon"];
 var words=word[Math.floor(Math.random()*word.length)];
 
+//A function that declares an array of possible monster hp (heaelth points) from which a random one is selected 
+// This function is also responsible for displaying the monster name, monster hp, 
+// Decrementing the user's available attack count, decrementing the monster's hp and responsible for 
+// Detecting when the monster is defeat and also correctly allocates experience to the user 
+
+// The use of react hooks and global variable library state-pools allows for this function to serve many different
+// purposes and functions
 function RandomMonster(props, filename, callback) {
   // Monster Title and Description
   var hp =[1, 3, 5, 7, 10]
@@ -532,7 +538,7 @@ function RandomMonster(props, filename, callback) {
 }
 
 
-
+// Adventure Page where attacks available is listed, and where functions needed for this page are linked
 function AdventurePage() {
   const [attack, setAttack] = useGlobalState("attacks");
   const [exps, setExp] = useGlobalState("exp");
@@ -553,6 +559,7 @@ function AdventurePage() {
   )
 }
 
+// A function responsible for the navigation between different pages 
 function App() {
   return(
     <div>

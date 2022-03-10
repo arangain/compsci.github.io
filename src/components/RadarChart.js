@@ -3,6 +3,7 @@ import {Radar} from 'react-chartjs-2'
 import CharStats from './CharStats';
 
 //https://recharts.org/en-US/guide/getting-started reference
+// Radar Chart displaying the user's characteristics/statistics 
 const RadarChart = () => {
     const data = CharStats
     return( 
